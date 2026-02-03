@@ -1,0 +1,23 @@
+export CUDA_VISIBLE_DEVICES=$1
+
+nitr=5
+wd=1e-5
+I=96
+
+# ETTh2
+python -u run.py --TSACon --TSACon_wnorm Mean  --TSACon_lambda 0.01 --d_model 8 --d_ff 16 --e_layers 4 --d_layers 2 --decoder_desize 0  --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTh2.csv --model_id TSACon --model TemporalCon_CI --data ETTh2 --seq_len $I --pred_len 96  --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.005 --feature M
+python -u run.py --TSACon --TSACon_wnorm Mean  --TSACon_lambda 0.01 --d_model 8 --d_ff 16 --e_layers 3 --d_layers 2 --decoder_desize 0  --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTh2.csv --model_id TSACon --model TemporalCon_CI --data ETTh2 --seq_len $I --pred_len 192 --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.005 --feature M
+python -u run.py --TSACon --TSACon_wnorm Mean  --TSACon_lambda 0.01 --d_model 8 --d_ff 16 --e_layers 3 --d_layers 2 --decoder_desize 96 --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTh2.csv --model_id TSACon --model TemporalCon_CI --data ETTh2 --seq_len $I --pred_len 336 --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.005 --feature M
+python -u run.py --TSACon --TSACon_wnorm Mean  --TSACon_lambda 0.01 --d_model 8 --d_ff 16 --e_layers 3 --d_layers 1 --decoder_desize 0  --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTh2.csv --model_id TSACon --model TemporalCon_CI --data ETTh2 --seq_len $I --pred_len 720 --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.005 --feature M
+
+# ETTm1
+python -u run.py --TSACon --TSACon_wnorm Mean --TSACon_lambda 0.001 --d_model 8 --d_ff 8  --e_layers 8 --decoder_desize 0 --kernel_size 3  --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTm1.csv --model_id TSACon --model TemporalCon_CI --data ETTm1 --seq_len $I --pred_len 96  --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.005 --feature M
+python -u run.py --TSACon --TSACon_wnorm Mean --TSACon_lambda 0.001 --d_model 8 --d_ff 16 --e_layers 8 --decoder_desize 0 --kernel_size 6  --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTm1.csv --model_id TSACon --model TemporalCon_CI --data ETTm1 --seq_len $I --pred_len 192 --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.005 --feature M
+python -u run.py --TSACon --TSACon_wnorm Mean --TSACon_lambda 0.001 --d_model 4 --d_ff 4  --e_layers 6 --decoder_desize 0 --kernel_size 6  --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTm1.csv --model_id TSACon --model TemporalCon_CI --data ETTm1 --seq_len $I --pred_len 336 --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.005 --feature M
+python -u run.py --TSACon --TSACon_wnorm Mean --TSACon_lambda 0.001 --d_model 8 --d_ff 8  --e_layers 6 --decoder_desize 0 --kernel_size 24 --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTm1.csv --model_id TSACon --model TemporalCon_CI --data ETTm1 --seq_len $I --pred_len 720 --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.005 --feature M
+
+# ETTm2
+python -u run.py --TSACon --TSACon_wnorm Mean --TSACon_lambda 1.0 --d_model 8  --d_ff 4 --decoder_desize 0 --kernel_size 3  --e_layers 2 --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTm2.csv --model_id TSACon --model TemporalCon_CI --data ETTm2 --seq_len $I --pred_len 96  --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.01 --feature M
+python -u run.py --TSACon --TSACon_wnorm Mean --TSACon_lambda 1.0 --d_model 4  --d_ff 4 --decoder_desize 0 --kernel_size 24 --e_layers 3 --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTm2.csv --model_id TSACon --model TemporalCon_CI --data ETTm2 --seq_len $I --pred_len 192 --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.01 --feature M
+python -u run.py --TSACon --TSACon_wnorm Mean --TSACon_lambda 1.0 --d_model 8  --d_ff 8 --decoder_desize 0 --kernel_size 3  --e_layers 2 --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTm2.csv --model_id TSACon --model TemporalCon_CI --data ETTm2 --seq_len $I --pred_len 336 --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.01 --feature M
+python -u run.py --TSACon --TSACon_wnorm Mean --TSACon_lambda 1.0 --d_model 16 --d_ff 4 --decoder_desize 0 --kernel_size 24 --e_layers 2 --target OT --c_out 7 --root_path ./dataset/ETT-small --data_path ETTm2.csv --model_id TSACon --model TemporalCon_CI --data ETTm2 --seq_len $I --pred_len 720 --enc_in 7 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.01 --feature M

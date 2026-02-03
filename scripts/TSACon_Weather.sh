@@ -1,0 +1,9 @@
+export CUDA_VISIBLE_DEVICES=$1
+
+nitr=5
+
+
+python -u run.py --TSACon --TSACon_wnorm ReVIN  --TSACon_lambda 1.0 --decomp_size 8 --decoder_desize 336 --d_model 8 --d_ff 256 --e_layers 3 --target OT --c_out 1 --root_path ./dataset/weather --data_path weather.csv --model_id TSACon --model TemporalCon --data weather --seq_len 336 --label_len 0 --pred_len 96   --enc_in 1 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.00005 --train_epochs 5 --feature S
+python -u run.py --TSACon --TSACon_wnorm Decomp --TSACon_lambda 0.5 --decomp_size 8 --decoder_desize 336 --d_model 8 --d_ff 128 --e_layers 3 --target OT --c_out 1 --root_path ./dataset/weather --data_path weather.csv --model_id TSACon --model TemporalCon --data weather --seq_len 336 --label_len 0 --pred_len 720  --enc_in 1 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.0001  --train_epochs 5 --feature S
+python -u run.py --TSACon --TSACon_wnorm Decomp --TSACon_lambda 1.0 --decomp_size 8 --decoder_desize 336 --d_model 8 --d_ff 64  --e_layers 3 --target OT --c_out 1 --root_path ./dataset/weather --data_path weather.csv --model_id TSACon --model TemporalCon --data weather --seq_len 336 --label_len 0 --pred_len 1440 --enc_in 1 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.0001  --train_epochs 5 --feature S
+python -u run.py --TSACon --TSACon_wnorm Decomp --TSACon_lambda 0.5 --decomp_size 8 --decoder_desize 336 --d_model 8 --d_ff 64  --e_layers 2 --target OT --c_out 1 --root_path ./dataset/weather --data_path weather.csv --model_id TSACon --model TemporalCon --data weather --seq_len 336 --label_len 0 --pred_len 2160 --enc_in 1 --des 'Exp' --itr $nitr --batch_size 128 --learning_rate 0.0001  --train_epochs 5 --feature S
